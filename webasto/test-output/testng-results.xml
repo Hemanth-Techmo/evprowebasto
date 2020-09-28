@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="183757" started-at="2020-09-23T07:37:59Z" finished-at="2020-09-23T07:41:03Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="183757" started-at="2020-09-23T07:37:59Z" finished-at="2020-09-23T07:41:03Z">
+      <class name="cpms.webasto.test.MaintenanceInventoryPageTest">
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="launchBrowser" is-config="true" duration-ms="18986" started-at="2020-09-23T13:07:59Z" finished-at="2020-09-23T13:08:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="inventoryBulkImport()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="inventoryBulkImport" duration-ms="15567" started-at="2020-09-23T13:08:18Z" finished-at="2020-09-23T13:08:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inventoryBulkImport -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="tearDown" is-config="true" duration-ms="1008" started-at="2020-09-23T13:08:34Z" finished-at="2020-09-23T13:08:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="launchBrowser" is-config="true" duration-ms="17872" started-at="2020-09-23T13:08:35Z" finished-at="2020-09-23T13:08:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="chargePointFindInInventory()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="chargePointFindInInventory" duration-ms="7240" started-at="2020-09-23T13:08:53Z" finished-at="2020-09-23T13:09:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- chargePointFindInInventory -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="tearDown" is-config="true" duration-ms="856" started-at="2020-09-23T13:09:00Z" finished-at="2020-09-23T13:09:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="launchBrowser" is-config="true" duration-ms="17451" started-at="2020-09-23T13:09:01Z" finished-at="2020-09-23T13:09:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="reassignToOrganization()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="reassignToOrganization" duration-ms="103243" started-at="2020-09-23T13:09:18Z" finished-at="2020-09-23T13:11:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reassignToOrganization -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="tearDown" is-config="true" duration-ms="1493" started-at="2020-09-23T13:11:02Z" finished-at="2020-09-23T13:11:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- cpms.webasto.test.MaintenanceInventoryPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
