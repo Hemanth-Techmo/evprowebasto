@@ -14,7 +14,7 @@ public class ChargePointsPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath ="//*[@id='slide-out']//li[3]/div[1]//a")
+	@FindBy(xpath ="//*[@id='slide-out']//li[2]/div[1]//a")
 	WebElement chargePointsBtn;
 
 	public WebElement chargePointsBtn() {
@@ -42,7 +42,7 @@ public class ChargePointsPage extends TestBase {
 	return findBtn;
 	}
 	
-	@FindBy(xpath="//span[text()='Charge point id not exists.']")
+	@FindBy(xpath="//*[@id='root']//div[3]//span/span")
 	WebElement cpIDNotExistsText;
 	public WebElement cpIDNotExistsText()
 	{

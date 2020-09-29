@@ -15,7 +15,7 @@ public class MaintenanceInventoryPage extends TestBase {
 	{
 		PageFactory.initElements(driver, this); 
 	}
-	@FindBy(xpath="//*[@id='slide-out']//li[9]/div[1]//a")
+	@FindBy(xpath="//*[@id='slide-out']//li[8]/div[1]//a")
 	WebElement maintenance;
 	public WebElement maintenance()
 	{
@@ -152,7 +152,7 @@ public class MaintenanceInventoryPage extends TestBase {
 		return switchAccDropdown;
 	}
 	
-	@FindBy(xpath="//*[@id='navbar']/div/ul/li[1]")
+	@FindBy(xpath="//*[@id='dpl-navbar-right-buttons']//li[1]")
 	WebElement verifyOrganisationText;
 	public WebElement verifyOrganisationText()
 	{

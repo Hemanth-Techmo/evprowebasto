@@ -50,8 +50,9 @@ public class ChargePointsPageTest extends TestBase {
 			chargePoint.chargePointIDSearch().sendKeys(rowData);
 			chargePoint.findBtn().click();
 			try {
+				Thread.sleep(2000);
 				String searchIDName = driver
-						.findElement(By.xpath("//*[@id='root']//div[4]//td[2]/a[text()=" + rowData + "]")).getText();
+						.findElement(By.xpath("//*[@id='root']//div[4]//td[2]/a[text()='"+rowData+"']")).getText();
 				Assert.assertEquals(rowData, searchIDName);
 				System.out.println("Searched CP ID"+ rowData +"is present in Overview page");
 			} catch (Exception e) {
@@ -59,6 +60,7 @@ public class ChargePointsPageTest extends TestBase {
 				boolean errorMsg = chargePoint.cpIDNotExistsText().isDisplayed();
 				Assert.assertTrue(errorMsg);
 				System.out.println("Searched CP ID " + rowData + " is not present in Overview page");
+				//System.out.println(e.getMessage());
 			}
 			chargePoint.chargePointIDSearch().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		}

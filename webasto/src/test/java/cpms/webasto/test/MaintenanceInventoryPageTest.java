@@ -166,10 +166,10 @@ public class MaintenanceInventoryPageTest extends TestBase {
 		Select se = new Select(inventory.switchAccDropdown());
 		se.selectByVisibleText("FORD");
 		inventory.dropdownOkBtn().click();
-		// Thread.sleep(4000);
-		// String[] orgText = inventory.verifyOrganisationText().getText().split(":");
-		// String trimOrgText = orgText[1].trim();
-		// Assert.assertEquals("FORD", trimOrgText);
+		 Thread.sleep(4000);
+		 String[] orgText = inventory.verifyOrganisationText().getText().split(":");
+		 String trimOrgText = orgText[1].trim();
+		 Assert.assertEquals("FORD", trimOrgText);
 		
         //Check the assigned Charge Points are present in FORD account inventory
 		for (int i = rowStartFrom; i < rowsToReassign; i++) {
@@ -203,7 +203,7 @@ public class MaintenanceInventoryPageTest extends TestBase {
 			chargePoint.findBtn().click();
 			try {
 				String searchIDName = driver
-						.findElement(By.xpath("//*[@id='root']//div[4]//td[2]/a[text()=" + rows + "]")).getText();
+						.findElement(By.xpath("//*[@id='root']//div[4]//td[2]/a[text()='"+rows+"']")).getText();
 				Assert.assertEquals(rows, searchIDName);
 				System.out.println("Searched CP ID " + rows + " is present in Overview page");
 				
@@ -220,9 +220,9 @@ public class MaintenanceInventoryPageTest extends TestBase {
 		inventory.topRightDropdown().click();
 		inventory.logOff().click();
 		
-		// Thread.sleep(3000);
-		// String trimOrgText1 = orgText[1].trim();
-		// Assert.assertEquals("WEBASTO", trimOrgText1);
+		 Thread.sleep(3000);
+		 String trimOrgText1 = orgText[1].trim();
+		 Assert.assertEquals("WEBASTO", trimOrgText1);
 	}
 
 	@AfterMethod
