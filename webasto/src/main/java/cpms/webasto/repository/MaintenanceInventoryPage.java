@@ -117,6 +117,13 @@ public class MaintenanceInventoryPage extends TestBase {
 		return chargePointID;
 	}
 	
+	@FindBy(xpath="//*[@id='root']//div[3]/button[2]")
+	WebElement yesButton;
+	public WebElement yesButton()
+	{
+		return yesButton;
+	}
+	
 	@FindBy(xpath="//*[@id='root']//div[4]/button[1]")
 	WebElement reassignBtn;
 	public WebElement reassignBtn()
@@ -124,21 +131,21 @@ public class MaintenanceInventoryPage extends TestBase {
 		return reassignBtn;
 	}
 	
-	@FindBy(xpath="//button[@class='btn-primary btn Ripple-parent']")
+	@FindBy(xpath="//*[@id='root']//div[3]/button")
 	WebElement dropdownOkBtn;
 	public WebElement dropdownOkBtn()
 	{
 		return dropdownOkBtn;
 	}
 	
-	@FindBy(css="li.nav-item.dropdown")
+	@FindBy(xpath="//*[@id='navbar-tools']")
 	WebElement topRightDropdown ;
 	public WebElement topRightDropdown()
 	{
 		return topRightDropdown;
 	}
 	
-	@FindBy(xpath="//*[@id='navbar-static-tools']/div/a[1]")
+	@FindBy(xpath="//*[@id='navbar-static-tools']/div/a[1]/span")
 	WebElement switchAccountBtn ;
 	public WebElement switchAccountBtn()
 	{

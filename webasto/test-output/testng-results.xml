@@ -1,49 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="3" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="183757" started-at="2020-09-23T07:37:59Z" finished-at="2020-09-23T07:41:03Z">
+  <suite name="Suite" duration-ms="33" started-at="2020-10-22T11:55:44Z" finished-at="2020-10-22T11:55:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="183757" started-at="2020-09-23T07:37:59Z" finished-at="2020-09-23T07:41:03Z">
-      <class name="cpms.webasto.test.MaintenanceInventoryPageTest">
-        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="launchBrowser" is-config="true" duration-ms="18986" started-at="2020-09-23T13:07:59Z" finished-at="2020-09-23T13:08:18Z">
+    <test name="Test" duration-ms="33" started-at="2020-10-22T11:55:44Z" finished-at="2020-10-22T11:55:44Z">
+      <class name="cpms.webasto.test.GetDiagnosticsPageTest">
+        <test-method status="FAIL" signature="getDianostics(java.lang.String)[pri:0, instance:cpms.webasto.test.GetDiagnosticsPageTest@5276e6b0]" name="getDianostics" duration-ms="0" started-at="2020-10-22T17:25:44Z" finished-at="2020-10-22T17:25:44Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'chargePointID' is required by @Test on method getDianostics but has not been marked @Optional or defined
+in C:\Users\DELL\git\evprowebasto\webasto\testng1.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'chargePointID' is required by @Test on method getDianostics but has not been marked @Optional or defined
+in C:\Users\DELL\git\evprowebasto\webasto\testng1.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:355)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:447)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method status="PASS" signature="inventoryBulkImport()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="inventoryBulkImport" duration-ms="15567" started-at="2020-09-23T13:08:18Z" finished-at="2020-09-23T13:08:34Z">
+        </test-method> <!-- getDianostics -->
+      </class> <!-- cpms.webasto.test.GetDiagnosticsPageTest -->
+      <class name="cpms.websocket.test.DiagnosticsTest">
+        <test-method status="FAIL" signature="connectChargePoint(java.lang.String)[pri:0, instance:cpms.websocket.test.DiagnosticsTest@5e316c74]" name="connectChargePoint" duration-ms="0" started-at="2020-10-22T17:25:44Z" finished-at="2020-10-22T17:25:44Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'chargePointID' is required by @Test on method connectChargePoint but has not been marked @Optional or defined
+in C:\Users\DELL\git\evprowebasto\webasto\testng1.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'chargePointID' is required by @Test on method connectChargePoint but has not been marked @Optional or defined
+in C:\Users\DELL\git\evprowebasto\webasto\testng1.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:355)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:447)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- inventoryBulkImport -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="tearDown" is-config="true" duration-ms="1008" started-at="2020-09-23T13:08:34Z" finished-at="2020-09-23T13:08:35Z">
+        </test-method> <!-- connectChargePoint -->
+        <test-method status="FAIL" signature="getResponse()[pri:0, instance:cpms.websocket.test.DiagnosticsTest@5e316c74]" name="getResponse" duration-ms="9" started-at="2020-10-22T17:25:44Z" finished-at="2020-10-22T17:25:44Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at cpms.websocket.test.DiagnosticsTest.getResponse(DiagnosticsTest.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="launchBrowser" is-config="true" duration-ms="17872" started-at="2020-09-23T13:08:35Z" finished-at="2020-09-23T13:08:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method status="PASS" signature="chargePointFindInInventory()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="chargePointFindInInventory" duration-ms="7240" started-at="2020-09-23T13:08:53Z" finished-at="2020-09-23T13:09:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- chargePointFindInInventory -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="tearDown" is-config="true" duration-ms="856" started-at="2020-09-23T13:09:00Z" finished-at="2020-09-23T13:09:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="launchBrowser" is-config="true" duration-ms="17451" started-at="2020-09-23T13:09:01Z" finished-at="2020-09-23T13:09:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method status="PASS" signature="reassignToOrganization()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="reassignToOrganization" duration-ms="103243" started-at="2020-09-23T13:09:18Z" finished-at="2020-09-23T13:11:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reassignToOrganization -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:cpms.webasto.test.MaintenanceInventoryPageTest@691a7f8f]" name="tearDown" is-config="true" duration-ms="1493" started-at="2020-09-23T13:11:02Z" finished-at="2020-09-23T13:11:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- cpms.webasto.test.MaintenanceInventoryPageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- getResponse -->
+      </class> <!-- cpms.websocket.test.DiagnosticsTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

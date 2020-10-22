@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" parallel="none">
   <test name="Default test(failed)" parallel="none">
     <classes>
-      <class name="cpms.webasto.test.MaintenanceInventoryPageTest">
+      <class name="cpms.websocket.test.DiagnosticsTest">
         <methods>
-          <include name="launchBrowser"/>
-          <include name="reassignToOrganization"/>
-          <include name="tearDown"/>
+          <include name="getResponse"/>
+          <include name="connectChargePoint"/>
         </methods>
-      </class> <!-- cpms.webasto.test.MaintenanceInventoryPageTest -->
+      </class> <!-- cpms.websocket.test.DiagnosticsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

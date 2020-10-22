@@ -4,4 +4,5 @@ email_Webasto_SuperAdmin_Devops=ocppadmin@webasto.com
 password_Webasto_SuperAdmin_Devops=webasto123
 resetEmail_Webasto_SuperAdmin_Devops=ocppadmin@webasto.com
 bulkImportExcelPath=C:\\Users\\DELL\\Downloads\\Inventory-Template.xlsx
-bulkImportDownloadedExcelPath=C:\\Users\\DELL\\Downloads\\Iinventory template-Result.xlsx
+bulkImportDownloadedExcelPath=C:\\Users\\DELL\\Downloads\\Inventory-Template-Result.xlsx
+webSocketExcel=C:\\Users\\DELL\\Downloads\\WebSocket-Concurrent-Users.xlsx

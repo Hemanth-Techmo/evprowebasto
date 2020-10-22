@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Failed suite [Suite1]" parallel="methods">
+  <test name="Test1(failed)" parallel="methods">
+    <classes>
+      <class name="cpms.webasto.test.SampleWebSocket">
+        <methods>
+          <include name="tearDown"/>
+          <include name="chargePointConnect1"/>
+          <include name="chargePointConnect2"/>
+          <include name="launch"/>
+        </methods>
+      </class> <!-- cpms.webasto.test.SampleWebSocket -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

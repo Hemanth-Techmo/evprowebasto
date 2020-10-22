@@ -11,17 +11,17 @@ import org.testng.annotations.Test;
 import com.excel.lib.util.Xls_Reader;
 
 import cpms.webasto.base.TestBase;
-import cpms.webasto.repository.ChargePointsPage;
+import cpms.webasto.repository.ChargePointsOverviewPage;
 import cpms.webasto.repository.DashboardPage;
 import cpms.webasto.repository.SignInPage;
 import junit.framework.Assert;
 
-public class ChargePointsPageTest extends TestBase {
+public class ChargePointsOverviewPageTest extends TestBase {
 	SignInPage signIn;
 	DashboardPage dashboard;
-	ChargePointsPage chargePoint;
+	ChargePointsOverviewPage chargePoint;
 
-	public ChargePointsPageTest() throws IOException {
+	public ChargePointsOverviewPageTest() throws IOException {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class ChargePointsPageTest extends TestBase {
 		initializeDriver();
 		signIn = new SignInPage();
 		dashboard = signIn.logIn(prop.getProperty("email_Webasto_SuperAdmin_Devops"), prop.getProperty("password_Webasto_SuperAdmin_Devops"));
-		chargePoint = new ChargePointsPage();
+		chargePoint = new ChargePointsOverviewPage();
 	}
 
 	@Test

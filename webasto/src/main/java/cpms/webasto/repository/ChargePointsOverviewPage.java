@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import cpms.webasto.base.TestBase;
 
-public class ChargePointsPage extends TestBase {
+public class ChargePointsOverviewPage extends TestBase {
 
-	public ChargePointsPage() throws IOException {
+	public ChargePointsOverviewPage() throws IOException {
 		PageFactory.initElements(driver, this);
 	}
 
@@ -42,7 +42,7 @@ public class ChargePointsPage extends TestBase {
 	return findBtn;
 	}
 	
-	@FindBy(xpath="//*[@id='root']//div[3]//span/span")
+	@FindBy(xpath="//*[@id='root']//span[1]/span")
 	WebElement cpIDNotExistsText;
 	public WebElement cpIDNotExistsText()
 	{

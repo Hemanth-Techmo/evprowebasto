@@ -47,4 +47,18 @@ public class WebSocketPage extends TestBase {
 	{
 		return disconnectBtn;
 	}
+	
+	@FindBy(xpath="//*[@id='messageTextarea']")
+	WebElement sendMessageTextField;
+	public WebElement sendMessageTextField()
+	{
+		return sendMessageTextField;
+	}
+	
+	@FindBy(xpath="//*[@id='messageSendButton']")
+	WebElement sendButton;
+	public WebElement sendButton()
+	{
+		return sendButton;
+	}
 }

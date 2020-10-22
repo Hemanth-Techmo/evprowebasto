@@ -51,6 +51,7 @@ public class WebSocketPageTest extends TestBase {
 			}
 		}
 	}
+	
 
 	@AfterMethod
 	public void tearDown() {

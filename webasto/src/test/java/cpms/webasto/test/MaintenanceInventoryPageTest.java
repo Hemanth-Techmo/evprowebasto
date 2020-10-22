@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import com.excel.lib.util.Xls_Reader;
 
 import cpms.webasto.base.TestBase;
-import cpms.webasto.repository.ChargePointsPage;
+import cpms.webasto.repository.ChargePointsOverviewPage;
 import cpms.webasto.repository.DashboardPage;
 import cpms.webasto.repository.MaintenanceInventoryPage;
 import cpms.webasto.repository.SignInPage;
@@ -28,7 +28,7 @@ public class MaintenanceInventoryPageTest extends TestBase {
 	SignInPage signIn;
 	DashboardPage dashboard;
 	MaintenanceInventoryPage inventory;
-	ChargePointsPage chargePoint;
+	ChargePointsOverviewPage chargePoint;
 
 	public MaintenanceInventoryPageTest() throws Exception {
 		super();
@@ -41,10 +41,10 @@ public class MaintenanceInventoryPageTest extends TestBase {
 		signIn = new SignInPage();
 		dashboard = signIn.logIn(prop.getProperty("email_Webasto_SuperAdmin_Devops"), prop.getProperty("password_Webasto_SuperAdmin_Devops"));
 		inventory = new MaintenanceInventoryPage();
-		chargePoint = new ChargePointsPage();
+		chargePoint = new ChargePointsOverviewPage();
 	}
 
-	@Test(priority=1)
+	@Test(enabled=false)
 	public void inventoryBulkImport() throws Exception {
 		inventory.maintenance().click();
 		inventory.inventory().click();
@@ -77,7 +77,7 @@ public class MaintenanceInventoryPageTest extends TestBase {
 
 	}
 
-	@Test(priority=2)
+	@Test(enabled=false)
 	public void chargePointFindInInventory() throws Exception {
 		inventory.maintenance().click();
 		inventory.inventory().click();
@@ -105,16 +105,16 @@ public class MaintenanceInventoryPageTest extends TestBase {
 		}
 	}
 
-	@Test(priority=3)
+	@Test(enabled=true)
 	public void reassignToOrganization() throws Exception {
 		inventory.maintenance().click();
 		inventory.inventory().click();
 		String rows = "";
 		List<String> chargeNames = null;
 		// Upto 5 rows
-		int rowsToReassign = 5;
+		int rowsToReassign = 2;
 		// Start from second row
-		int rowStartFrom = 2;
+		int rowStartFrom = 1;
 		
 		//Reassign Charge Points to Ford Organization
 		for (int i = rowStartFrom; i < rowsToReassign; i++) {
@@ -135,6 +135,9 @@ public class MaintenanceInventoryPageTest extends TestBase {
 		String reassignBtn = inventory.reassignBtn().getText();
 		if (reassignTxt.equals(reassignBtn)) {
 			inventory.reassignBtn().click();
+			Thread.sleep(3000);
+		    inventory.yesButton().click();
+			Thread.sleep(3000);
 			try {
 				inventory.dropdownOkBtn().click();
 			} catch (Exception e) {
@@ -142,36 +145,6 @@ public class MaintenanceInventoryPageTest extends TestBase {
 			}
 		}
 		//Checking Reassigned Charge Points are still present in Inventory
-		for (int i = rowStartFrom; i < rowsToReassign; i++) {
-			rows = chargeNames.get(i);
-			inventory.maintenance().click();
-			inventory.inventory().click();
-			inventory.chargePointIDSearch().click();
-			inventory.chargePointIDSearch().sendKeys(rows);
-			inventory.findBtn().click();
-			inventory.chargePointIDSearch().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-			try {
-				boolean searchID = inventory.chargePointRow().isDisplayed();
-				String searchIDName = inventory.chargePointRow().getText();
-				if (searchID == true) {
-					Assert.assertEquals(rows, searchIDName);
-				}
-			} catch (Exception e) {
-				System.out.println("Searched CP ID " + rows + " is moved to FORD organisation");
-			}
-		}
-        //Switch to FORD account
-		inventory.topRightDropdown().click();
-		inventory.switchAccountBtn().click();
-		Select se = new Select(inventory.switchAccDropdown());
-		se.selectByVisibleText("FORD");
-		inventory.dropdownOkBtn().click();
-		 Thread.sleep(4000);
-		 String[] orgText = inventory.verifyOrganisationText().getText().split(":");
-		 String trimOrgText = orgText[1].trim();
-		 Assert.assertEquals("FORD", trimOrgText);
-		
-        //Check the assigned Charge Points are present in FORD account inventory
 		for (int i = rowStartFrom; i < rowsToReassign; i++) {
 			rows = chargeNames.get(i);
 			Thread.sleep(3000);
@@ -182,14 +155,60 @@ public class MaintenanceInventoryPageTest extends TestBase {
 			inventory.findBtn().click();
 			inventory.chargePointIDSearch().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 			try {
-				Thread.sleep(3000);
-				boolean searchID = inventory.chargePointRow().isDisplayed();
-				String searchIDName = inventory.chargePointRow().getText();
-				if (searchID == true) {
+				//boolean searchID = inventory.chargePointRow().isDisplayed();
+				boolean idNotExist=chargePoint.cpIDNotExistsText().isDisplayed();
+				if (idNotExist == true) {
+					System.out.println("Searched CP ID " + rows + " is moved to FORD organisation");
+				}
+				else
+				{
+					String searchIDName = inventory.chargePointRow().getText();
 					Assert.assertEquals(rows, searchIDName);
+					System.out.println("Searched CP ID " + rows + " is not moved to FORD organisation");
 				}
 			} catch (Exception e) {
-				System.out.println("Searched CP ID " + rows + " is not present");
+				e.printStackTrace();
+			}
+		}
+        //Switch to FORD account
+		Thread.sleep(4000);
+		inventory.topRightDropdown().click();
+		inventory.switchAccountBtn().click();
+		Select se = new Select(inventory.switchAccDropdown());
+		se.selectByVisibleText("FORD");
+		 Thread.sleep(4000);
+		inventory.dropdownOkBtn().click();
+		// driver.navigate().refresh();
+		 //driver.navigate().to(driver.getCurrentUrl());
+		driver.get(driver.getCurrentUrl());
+		 String[] orgText = inventory.verifyOrganisationText().getText().split(":");
+		 String trimOrgText = orgText[1].trim();
+		 Assert.assertEquals("FORD", trimOrgText);
+		
+        //Check the assigned Charge Points are present in FORD account inventory
+		for (int i = rowStartFrom; i < rowsToReassign; i++) {
+			rows = chargeNames.get(i);
+			inventory.maintenance().click();
+			inventory.inventory().click();
+			inventory.chargePointIDSearch().click();
+			inventory.chargePointIDSearch().sendKeys(rows);
+			inventory.findBtn().click();
+			inventory.chargePointIDSearch().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+			try {
+				Thread.sleep(3000);
+			//	boolean searchID = inventory.chargePointRow().isDisplayed();
+				boolean idNotExist=chargePoint.cpIDNotExistsText().isDisplayed();
+				if (idNotExist == true) {
+					System.out.println("Searched CP ID " + rows + " is not present in Inventory");
+				}
+				else
+				{
+					String searchIDName = inventory.chargePointRow().getText();
+					Assert.assertEquals(rows, searchIDName);
+					System.out.println("Searched CP ID " + rows + " is present in Inventory");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 		chargePoint.chargePointsBtn().click();
@@ -218,9 +237,8 @@ public class MaintenanceInventoryPageTest extends TestBase {
 		
 		//Log off Organization
 		inventory.topRightDropdown().click();
+		Thread.sleep(3000);
 		inventory.logOff().click();
-		
-		 Thread.sleep(3000);
 		 String trimOrgText1 = orgText[1].trim();
 		 Assert.assertEquals("WEBASTO", trimOrgText1);
 	}
