@@ -3,17 +3,13 @@
 <suite name="Failed suite [Suite]" parallel="none">
   <test name="Test(failed)" parallel="none">
     <classes>
-      <class name="cpms.webasto.test.GetDiagnosticsPageTest">
+      <class name="cpms.webasto.test.UploadDiagnosticsPageTest">
         <methods>
-          <include name="getDianostics"/>
+          <include name="tearDown"/>
+          <include name="uploadDiagnostics"/>
+          <include name="launchBrowser"/>
         </methods>
-      </class> <!-- cpms.webasto.test.GetDiagnosticsPageTest -->
-      <class name="cpms.websocket.test.DiagnosticsTest">
-        <methods>
-          <include name="getResponse"/>
-          <include name="connectChargePoint"/>
-        </methods>
-      </class> <!-- cpms.websocket.test.DiagnosticsTest -->
+      </class> <!-- cpms.webasto.test.UploadDiagnosticsPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

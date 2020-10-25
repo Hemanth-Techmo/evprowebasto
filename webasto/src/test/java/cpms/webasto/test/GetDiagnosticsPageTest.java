@@ -2,13 +2,16 @@ package cpms.webasto.test;
 
 import java.io.IOException;
 
+import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import cpms.webasto.base.TestBase;
-import cpms.webasto.repository.CalendarWidget;
+import cpms.webasto.miscellaneous.CalendarWidget;
 import cpms.webasto.repository.DashboardPage;
 import cpms.webasto.repository.GetDiagnosticsPage;
 import cpms.webasto.repository.SelectChargePointModel;
@@ -62,6 +65,13 @@ public class GetDiagnosticsPageTest extends TestBase {
 		calWidget.lastDateInWidget().click();
 		getDiagnostics.retriesTextField().click();
 		getDiagnostics.performButton().click();
+		Thread.sleep(1000);
+		boolean sucessMsgFlag=getDiagnostics.requestProcessedMsg().isDisplayed();
+		WebDriverWait wait = new WebDriverWait(driver, 6);
+		wait.until(ExpectedConditions.visibilityOf(getDiagnostics.requestProcessedMsg()));
+		Assert.assertTrue(sucessMsgFlag);
+		String sucessMsg=getDiagnostics.requestProcessedMsg().getText();
+		System.out.println(sucessMsg);
 		
 	}
 

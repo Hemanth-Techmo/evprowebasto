@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" parallel="none">
-  <test name="Default test(failed)" parallel="none">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cpms.websocket.test.DiagnosticsTest">
+      <class name="cpms.webasto.test.FotaBuildsPageTest">
         <methods>
-          <include name="getResponse"/>
-          <include name="connectChargePoint"/>
+          <include name="launchBrowser"/>
+          <include name="tearDown"/>
+          <include name="addFotaBuild"/>
         </methods>
-      </class> <!-- cpms.websocket.test.DiagnosticsTest -->
+      </class> <!-- cpms.webasto.test.FotaBuildsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

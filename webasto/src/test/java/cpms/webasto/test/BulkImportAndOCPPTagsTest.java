@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import com.excel.lib.util.Xls_Reader;
 
 import cpms.webasto.base.TestBase;
-import cpms.webasto.repository.CalendarWidget;
+import cpms.webasto.miscellaneous.CalendarWidget;
 import cpms.webasto.repository.ChargePointsOcppTagsPage;
 import cpms.webasto.repository.ChargePointsOverviewPage;
 import cpms.webasto.repository.DashboardPage;
@@ -85,7 +85,7 @@ public class BulkImportAndOCPPTagsTest extends TestBase {
 		}
 	}
 	
-	@Test
+	@Test(enabled=true)
 	public void addOCPPTag() throws Exception {
 		chargePoint.chargePointsBtn().click();
 		ocppTagsPage.ocppTagsSideBar().click();

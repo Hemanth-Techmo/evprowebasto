@@ -33,4 +33,11 @@ public class UploadDiagnosticsPage extends TestBase{
 	{
 		return performButton;
 	}
+	
+	@FindBy(xpath="//div[text()='Diagnostics uploaded sucessfully.']")
+	WebElement diagnosticsUploadedSuccessMsg;
+	public WebElement diagnosticsUploadedSuccessMsg()
+	{
+		return diagnosticsUploadedSuccessMsg;
+	}
 }

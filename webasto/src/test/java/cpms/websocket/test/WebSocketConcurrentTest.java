@@ -17,22 +17,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class SampleWebSocketTestDev {
-	String vendorName;
-	String modelName;
-	String firmwareVersionName;
-	int chargePointSerialNum;
-String idTagCheck;
+import com.excel.lib.util.Xls_Reader;
+
+public class WebSocketConcurrentTest {
+
+int rowNumber;
 int connectId;
-String chargeId;
-	public void chargePointConnect1(String vendor, String model,String firmwareVersion,int cpSerialNum,String chargePointId,String idTag,int connectorId) throws Exception {
-		vendorName=vendor;
-		modelName=model;
-		firmwareVersionName=firmwareVersion;
-		chargePointSerialNum=cpSerialNum;
-		idTagCheck=idTag;
+String env;
+	public void chargePointConnect(int rowNum, int connectorId, String environment) throws Exception {
+		rowNumber=rowNum;
 		connectId=connectorId;
-		chargeId=chargePointId;
+		env=environment;
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(
 				"C:\\Users\\DELL\\git\\evprowebasto\\webasto\\src\\main\\java\\cpms\\webasto\\properties\\properties");
@@ -50,7 +45,26 @@ String chargeId;
 		webSocket.serverURLTextField().click();
 		//String randomNum = RandomStringUtils.randomNumeric(5);
         String randomString = RandomStringUtils.randomAlphabetic(6);
+        
+        Xls_Reader reader = new Xls_Reader(prop.getProperty("bulkImportExcelPath"));
+        String sheetName1 = "Import Inventory";
+        String sheetName2= "OCPP Tags";
+		//int rowCount = reader.getRowCount(sheetName);
+	    String chargePointId = reader.getCellData(sheetName1, "Charge Point", rowNum);
+		String vendor=reader.getCellData(sheetName1, "Organization ID", rowNum);
+		String model=reader.getCellData(sheetName1, "Model Name", rowNum);
+		String firmwareVersion=reader.getCellData(sheetName1, "Firmware Version", rowNum);
+		String cpSerialNum=reader.getCellData(sheetName1, "MES Serial Number", rowNum);
+		String idTag=reader.getCellData(sheetName2, "Tag ID", rowNum);
+		Thread.sleep(2000);
+		if(environment.equalsIgnoreCase("dev"))
+		{
 		webSocket.serverURLTextField().sendKeys("ws://devcs.evprowebasto.com/cs/"+chargePointId+"");
+		}
+		else
+		{
+		webSocket.serverURLTextField().sendKeys("ws://betacs.evprowebasto.com/cs/"+chargePointId+"");
+		}
 		webSocket.serverProtocolTextField().click();
 		webSocket.serverProtocolTextField().sendKeys("ocpp1.6");
 		Thread.sleep(2000);

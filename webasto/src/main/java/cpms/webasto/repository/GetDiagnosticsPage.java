@@ -61,4 +61,11 @@ public class GetDiagnosticsPage extends TestBase {
 	{
 		return performButton;
 	}
+	
+	@FindBy(xpath="//div[text()='Request is processed Successfully']")
+	WebElement requestProcessedMsg;
+	public WebElement requestProcessedMsg()
+	{
+		return requestProcessedMsg;
+	}
 }
