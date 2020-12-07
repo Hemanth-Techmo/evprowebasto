@@ -55,7 +55,7 @@ public class WebSocketPageTest extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		driverWs.quit();
 	}
 
 }

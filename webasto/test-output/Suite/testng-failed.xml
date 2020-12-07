@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" parallel="none">
-  <test name="Test(failed)" parallel="none">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="10" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <test thread-count="10" name="Test(failed)" parallel="methods">
     <classes>
-      <class name="cpms.webasto.test.UploadDiagnosticsPageTest">
+      <class name="cpms.websocket.test.WebSocketConcurrentTestExecution">
         <methods>
-          <include name="tearDown"/>
-          <include name="uploadDiagnostics"/>
-          <include name="launchBrowser"/>
+          <include name="chargePointConnect7"/>
+          <include name="chargePointConnect8"/>
+          <include name="chargePointConnect3"/>
+          <include name="chargePointConnect6"/>
+          <include name="chargePointConnect9"/>
+          <include name="chargePointConnect4"/>
+          <include name="chargePointConnect2"/>
+          <include name="chargePointConnect5"/>
+          <include name="chargePointConnect1"/>
         </methods>
-      </class> <!-- cpms.webasto.test.UploadDiagnosticsPageTest -->
+      </class> <!-- cpms.websocket.test.WebSocketConcurrentTestExecution -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -10,11 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SampleWebSocketPage {
 	
-	WebDriver driver;
+	WebDriver driverWs;
 
-	public SampleWebSocketPage(WebDriver driver) {
-		this.driver=driver;
-		PageFactory.initElements(driver, this);
+	public SampleWebSocketPage(WebDriver driverWs) {
+		this.driverWs=driverWs;
+		PageFactory.initElements(driverWs, this);
 		} 
 
 	@FindBy(css = "input#urlInput")

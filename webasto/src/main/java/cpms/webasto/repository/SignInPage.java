@@ -15,7 +15,7 @@ public class SignInPage extends TestBase {
 		PageFactory.initElements(driver, this); 
 	}
 	
-	@FindBy(id="email")
+	@FindBy(css="input#email")
 	WebElement email;
 	
 	@FindBy(id="password")

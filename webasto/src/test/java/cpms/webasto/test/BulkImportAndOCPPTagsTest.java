@@ -44,7 +44,7 @@ public class BulkImportAndOCPPTagsTest extends TestBase {
 		calWidget=new CalendarWidget();
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void bulkImportForDifferentTenants() throws Exception {
 		String s1[] = { "WEBASTO", "FORD", "GilchingOperational" };
 		for (int i = 0; i <= s1.length - 1; i++) {
@@ -60,7 +60,7 @@ public class BulkImportAndOCPPTagsTest extends TestBase {
 			inventory.downloadBtn().click();
 			Thread.sleep(5000);
 			Xls_Reader reader = new Xls_Reader(prop.getProperty("bulkImportDownloadedExcelPath"));
-			String sheetName = "Import_Inventory_Dev";
+			String sheetName = "Import_Inventory";
 			int rowCount = reader.getRowCount(sheetName);
 			String status1 = "Record already saved";
 			String status2 = "Successfully saved";
@@ -85,7 +85,7 @@ public class BulkImportAndOCPPTagsTest extends TestBase {
 		}
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void addOCPPTag() throws Exception {
 		chargePoint.chargePointsBtn().click();
 		ocppTagsPage.ocppTagsSideBar().click();

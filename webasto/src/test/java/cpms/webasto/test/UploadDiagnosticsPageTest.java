@@ -1,15 +1,8 @@
 package cpms.webasto.test;
 
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -19,12 +12,10 @@ import org.testng.annotations.Test;
 import cpms.webasto.base.TestBase;
 import cpms.webasto.miscellaneous.GenericClass;
 import cpms.webasto.repository.DashboardPage;
-import cpms.webasto.repository.GetDiagnosticsPage;
 import cpms.webasto.repository.MaintenanceInventoryPage;
 import cpms.webasto.repository.SelectChargePointModel;
 import cpms.webasto.repository.SignInPage;
 import cpms.webasto.repository.UploadDiagnosticsPage;
-import cpms.websocket.test.DiagnosticsTest;
 
 public class UploadDiagnosticsPageTest extends TestBase{
 
@@ -38,6 +29,7 @@ public class UploadDiagnosticsPageTest extends TestBase{
 	MaintenanceInventoryPage inventory;
 	SelectChargePointModel selectChargePoint;	
 	GenericClass extractFile;
+	
 	@BeforeMethod
 	public void launchBrowser() throws Exception {
 		// Initialize Driver
@@ -51,7 +43,7 @@ public class UploadDiagnosticsPageTest extends TestBase{
 		extractFile=new GenericClass();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=4)
 	public void uploadDiagnostics() throws Exception
 	{
 		inventory.maintenance().click();
@@ -84,7 +76,6 @@ public class UploadDiagnosticsPageTest extends TestBase{
 		{
 			System.out.println("Diagnostics not uploaded");
 		}
-		
 		
 	}
 

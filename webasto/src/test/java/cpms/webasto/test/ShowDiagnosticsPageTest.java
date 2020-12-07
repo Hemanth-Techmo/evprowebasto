@@ -3,7 +3,6 @@ package cpms.webasto.test;
 import java.io.IOException;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -13,7 +12,6 @@ import cpms.webasto.base.TestBase;
 import cpms.webasto.miscellaneous.GenericClass;
 import cpms.webasto.repository.DashboardPage;
 import cpms.webasto.repository.MaintenanceInventoryPage;
-import cpms.webasto.repository.SelectChargePointModel;
 import cpms.webasto.repository.ShowDiagnosticsPage;
 import cpms.webasto.repository.SignInPage;
 import cpms.webasto.repository.UploadDiagnosticsPage;
@@ -43,7 +41,7 @@ public class ShowDiagnosticsPageTest extends TestBase {
 		extractFile=new GenericClass();
 	}
 
-	@Test
+	@Test(priority=5)
 	public void showDiagnostics() {
 		inventory.maintenance().click();
 		showDiagnostics.showDiagnosticsSideBarBtn().click();

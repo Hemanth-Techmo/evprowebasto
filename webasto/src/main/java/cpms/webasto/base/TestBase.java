@@ -14,6 +14,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class TestBase {
 	public static WebDriver driver;
+	public static WebDriver driverWs;
 	public static Properties prop;
 
 	public TestBase() throws IOException {
@@ -51,10 +52,10 @@ public class TestBase {
 				"C:\\Users\\DELL\\Downloads\\Selenium\\chromedriver_win32_new\\chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addExtensions(new File("C:\\Users\\DELL\\Downloads\\Selenium\\Browser WebSocket Client.crx"));
-		driver = new ChromeDriver(options);
-		driver.get("chrome-extension://mdmlhchldhfnfnkfmljgeinlffmdgkjo/index.html");
-		driver.navigate().refresh();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driverWs = new ChromeDriver(options);
+		driverWs.get("chrome-extension://mdmlhchldhfnfnkfmljgeinlffmdgkjo/index.html");
+		driverWs.navigate().refresh();
+		driverWs.manage().window().maximize();
+		driverWs.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 }

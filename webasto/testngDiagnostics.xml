@@ -3,7 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      <class name="cpms.webasto.test.GetDiagnosticsPageTest"/>
       <class name="cpms.websocket.test.DiagnosticsTest"/>
+      <class name="cpms.webasto.test.ShowDiagnosticsPageTest"/>
       <class name="cpms.webasto.test.UploadDiagnosticsPageTest"/>
     </classes>
   </test> <!-- Test -->

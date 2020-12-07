@@ -36,12 +36,12 @@ String env;
 				"C:\\Users\\DELL\\Downloads\\Selenium\\chromedriver_win32_new\\chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addExtensions(new File("C:\\Users\\DELL\\Downloads\\Selenium\\Browser WebSocket Client.crx"));
-		WebDriver driver = new ChromeDriver(options);
-		driver.get("chrome-extension://mdmlhchldhfnfnkfmljgeinlffmdgkjo/index.html");
-		driver.navigate().refresh();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		SampleWebSocketPage webSocket = new SampleWebSocketPage(driver);
+		WebDriver driverWs = new ChromeDriver(options);
+		driverWs.get("chrome-extension://mdmlhchldhfnfnkfmljgeinlffmdgkjo/index.html");
+		driverWs.navigate().refresh();
+		driverWs.manage().window().maximize();
+		driverWs.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		SampleWebSocketPage webSocket = new SampleWebSocketPage(driverWs);
 		webSocket.serverURLTextField().click();
 		//String randomNum = RandomStringUtils.randomNumeric(5);
         String randomString = RandomStringUtils.randomAlphabetic(6);
@@ -61,9 +61,13 @@ String env;
 		{
 		webSocket.serverURLTextField().sendKeys("ws://devcs.evprowebasto.com/cs/"+chargePointId+"");
 		}
-		else
+		else if(environment.equalsIgnoreCase("beta"))
 		{
 		webSocket.serverURLTextField().sendKeys("ws://betacs.evprowebasto.com/cs/"+chargePointId+"");
+		}
+		else
+		{
+		webSocket.serverURLTextField().sendKeys("ws://fordtestcs.evprowebasto.com/cs/"+chargePointId+"");
 		}
 		webSocket.serverProtocolTextField().click();
 		webSocket.serverProtocolTextField().sendKeys("ocpp1.6");
@@ -108,14 +112,14 @@ String env;
 				"]");
 		
 		webSocket.sendButton().click();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driverWs;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		String bootNotificationResponse = driver.findElement(By.xpath("//*[@id='messages']/pre[3]")).getText();
+		String bootNotificationResponse = driverWs.findElement(By.xpath("//*[@id='messages']/pre[3]")).getText();
 		System.out.println("*****"+chargePointId+" Boot Notification Response*****");
 		System.out.println(bootNotificationResponse);
 		Thread.sleep(6000);
 		webSocket.sendMessageTextField().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		driver.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
+		driverWs.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
 	
 		//Start Transaction
 		webSocket.sendMessageTextField().sendKeys("[\r\n" + 
@@ -141,9 +145,9 @@ String env;
 				"  }\r\n" + 
 				"]");
 		webSocket.sendButton().click();
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		JavascriptExecutor jse = (JavascriptExecutor) driverWs;
 		jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		String startTransactionResponse = driver.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
+		String startTransactionResponse = driverWs.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
 		System.out.println("*****"+chargePointId+" Start Transaction Response*****");
 		System.out.println(startTransactionResponse);
 		String[] responseSplit = startTransactionResponse.split(",");
@@ -154,7 +158,7 @@ String env;
         if(transactId.equalsIgnoreCase("{\"status\""))
         {
         	System.out.println("TransactionId not generated for "+chargePointId+" due to ConcurrentTx or Invalid error");
-        	driver.quit();
+        	driverWs.quit();
         }
         else
         {
@@ -162,7 +166,7 @@ String env;
         {
             String randomString1 = RandomStringUtils.randomAlphabetic(6);
         	webSocket.sendMessageTextField().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-    		driver.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
+        	driverWs.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
     		//Meter Value
     		webSocket.sendMessageTextField().sendKeys("[\r\n" + 
     				"2,\r\n" + 
@@ -196,16 +200,16 @@ String env;
 				"  }\r\n" + 
 				"]");
     		webSocket.sendButton().click();
-    		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+    		JavascriptExecutor js1 = (JavascriptExecutor) driverWs;
     		js1.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     		Thread.sleep(2000);
-    		String meterValueResponse = driver.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
+    		String meterValueResponse = driverWs.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
     		System.out.println("*****"+chargePointId+" Meter value response for value "+meterStartValue+"*****");
     		System.out.println(meterValueResponse);
         }
         
 		webSocket.sendMessageTextField().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-		driver.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
+		driverWs.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
 		//Status Notification
 		webSocket.sendMessageTextField().sendKeys("[\r\n" + 
 				"2,\r\n" + 
@@ -234,15 +238,15 @@ String env;
 				"}\r\n" + 
 				"]");
 		webSocket.sendButton().click();
-		JavascriptExecutor js2 = (JavascriptExecutor) driver;
+		JavascriptExecutor js2 = (JavascriptExecutor) driverWs;
 		js2.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		Thread.sleep(2000);
-		String statusNotificationResponse = driver.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
+		String statusNotificationResponse = driverWs.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
 		System.out.println("*****"+chargePointId+" Status Notification Response*****");
 		System.out.println(statusNotificationResponse);
 		
 			webSocket.sendMessageTextField().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-			driver.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
+			driverWs.findElement(By.xpath("//*[@id='clearMessagesButton']")).click();
 			//Stop Transaction
 			webSocket.sendMessageTextField().sendKeys("[\r\n" + 
 					"  2,\r\n" + 
@@ -270,13 +274,13 @@ String env;
 					"  }\r\n" + 
 					"]");
 			webSocket.sendButton().click();
-			JavascriptExecutor js3 = (JavascriptExecutor) driver;
+			JavascriptExecutor js3 = (JavascriptExecutor) driverWs;
 			js3.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			Thread.sleep(2000);
-			String stopTransacResponse = driver.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
+			String stopTransacResponse = driverWs.findElement(By.xpath("//*[@id='messages']/pre[2]")).getText();
 			System.out.println("*****"+chargePointId+" Stop Transaction*****");
 			System.out.println(stopTransacResponse);
-			driver.quit();
+			driverWs.quit();
         }
 	}
 }

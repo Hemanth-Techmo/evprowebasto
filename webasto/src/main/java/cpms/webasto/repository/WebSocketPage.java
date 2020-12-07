@@ -10,7 +10,7 @@ import cpms.webasto.base.TestBase;
 
 public class WebSocketPage extends TestBase {
 	public WebSocketPage() throws IOException {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driverWs, this);
 	}
 
 	@FindBy(css = "input#urlInput")

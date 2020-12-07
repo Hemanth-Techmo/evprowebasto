@@ -3,13 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cpms.webasto.test.FotaBuildsPageTest">
+      <class name="cpms.websocket.test.WebSocketConcurrentTestExecution">
         <methods>
-          <include name="launchBrowser"/>
-          <include name="tearDown"/>
-          <include name="addFotaBuild"/>
+          <include name="chargePointConnect1"/>
         </methods>
-      </class> <!-- cpms.webasto.test.FotaBuildsPageTest -->
+      </class> <!-- cpms.websocket.test.WebSocketConcurrentTestExecution -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

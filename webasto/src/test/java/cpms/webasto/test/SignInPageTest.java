@@ -29,9 +29,7 @@ public class SignInPageTest extends TestBase
     @Test
     public void signInPageTest() throws Exception
     {
-    
     	dashboard=signIn.logIn(prop.getProperty("email_Webasto_SuperAdmin_Devops"), prop.getProperty("password_Webasto_SuperAdmin_Devops"));
-  
     }
     
     @AfterMethod

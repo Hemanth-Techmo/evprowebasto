@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import cpms.webasto.base.TestBase;
@@ -26,7 +25,6 @@ public class GetDiagnosticsPageTest extends TestBase {
 
 	public GetDiagnosticsPageTest() throws IOException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@BeforeMethod
@@ -42,11 +40,11 @@ public class GetDiagnosticsPageTest extends TestBase {
 	}
 
 	@Test(priority=2)
-	@Parameters({"chargePointID"})
-	public void getDianostics(String chargePointID) throws InterruptedException {
+	public void getDianostics() throws Exception {
 		getDiagnostics.operationsSideBarBtn().click();
 		getDiagnostics.getDiagnosticsBtn().click();
 		selectChargePoint.selectChargePointBtn().click();
+	       String chargePointID="JMSRE142";
 		selectChargePoint.selectCheckBox(chargePointID);
 		String selectedChargePoint=selectChargePoint.selectedChargePoint().getText();
 		if(selectedChargePoint.equalsIgnoreCase(chargePointID))
@@ -71,12 +69,11 @@ public class GetDiagnosticsPageTest extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(getDiagnostics.requestProcessedMsg()));
 		Assert.assertTrue(sucessMsgFlag);
 		String sucessMsg=getDiagnostics.requestProcessedMsg().getText();
-		System.out.println(sucessMsg);
-		
+		System.out.println(sucessMsg);		
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+	  driver.quit();
 	}
 }
